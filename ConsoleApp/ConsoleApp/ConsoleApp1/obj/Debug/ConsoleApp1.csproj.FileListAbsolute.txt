@@ -1,0 +1,7 @@
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\obj\Debug\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\hellk\OneDrive\Документы\GitHub\ConsoleApp\ConsoleApp\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
