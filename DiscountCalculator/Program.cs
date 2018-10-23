@@ -39,15 +39,15 @@ namespace DiscountСalculator
 
             product.Price = price;
 
-            Console.WriteLine("Выберите тип скидки 1 - процент от стоимости, 2 - сумма от стоимости");
+            Console.WriteLine("Выберите тип скидки 1 - процент от стоимости, 2 - сумма от стоимости, 3 - подарочная карта");
 
             int.TryParse(Console.ReadLine(), out var answer2);
 
-            while (answer2 != 1 & answer2 != 2)
+            while (answer2 != 1 & answer2 != 2 & answer2 != 3)
             {
                 Console.WriteLine("Некорректный ответ");
 
-                Console.WriteLine("Выберите тип скидки 1 - процент от стоимости, 2 - сумма от стоимости");
+                Console.WriteLine("Выберите тип скидки 1 - процент от стоимости, 2 - сумма от стоимости,  3 - подарочная карта");
 
                 int.TryParse(Console.ReadLine(), out answer2);
             }
@@ -70,7 +70,7 @@ namespace DiscountСalculator
                 product.DiscountValue = discountValue;
             }
 
-            if (answer2 == 2)
+            if (answer2 == 2 || answer2 == 3)
             {
                 Console.WriteLine("Введите значение скидки на товар");
 
@@ -83,23 +83,30 @@ namespace DiscountСalculator
                     int.TryParse(Console.ReadLine(), out discountValue);
                 }
 
-                product.DiscountValue = discountValue;
+                product.DiscountValue = discountValue;                
             }
 
-            Console.WriteLine("У скидки есть срок действия? 1 - да, 2 - нет");
+            int answer31 = 0; // глобальная переменная
 
-            int.TryParse(Console.ReadLine(), out var answer3);
-
-            while (answer3 != 1 & answer3 != 2)
+            if (answer2 == 1 || answer2 == 2)
             {
-                Console.WriteLine("Некорректный ответ");
-
                 Console.WriteLine("У скидки есть срок действия? 1 - да, 2 - нет");
 
-                int.TryParse(Console.ReadLine(), out answer3);
-            }
+                int.TryParse(Console.ReadLine(), out var answer3);
 
-            if (answer3 == 1)
+                while (answer3 != 1 & answer3 != 2)
+                {
+                    Console.WriteLine("Некорректный ответ");
+
+                    Console.WriteLine("У скидки есть срок действия? 1 - да, 2 - нет");
+
+                    int.TryParse(Console.ReadLine(), out answer3);
+                }
+
+                answer31 = answer3; // преобразование локальной переменной в глобальную
+            }
+                                    
+            if (answer31 == 1 || answer2 == 3) 
             {
                 Console.WriteLine("Введите дату начала действия скидки (dd.mm.yyyy)");
 
@@ -120,7 +127,7 @@ namespace DiscountСalculator
                 }
             }
 
-            if (answer3 == 2)
+            if (answer31 == 2)
             {
                 product.StartSellDate = DateTime.UtcNow.AddDays(-1); //устанавливает вчера как дату начала действия скидки
 
