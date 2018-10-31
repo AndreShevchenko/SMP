@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Shop.Models.Product>
+@{
+    //ViewData["Title"] = "Список продуктов";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин продуктов</title>
+</head>
+<body>
+    <h3>Продукты</h3>
+    <table>
+        <tr>
+            <td>Название</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td><a href="~/Home/Buy/@product.Id">Купить</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
