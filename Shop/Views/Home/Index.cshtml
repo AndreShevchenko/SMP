@@ -14,10 +14,11 @@
         <tr>
             <td>@product.Name</td>
             <td>@product.Price</td>
-            <td><a href="~/Home/Buy/@product.Id">Купить</a></td>
+            <td><a asp-action="Basket">Добавить в корзину</a></td>
         </tr>
     }
 </table>
+<tr><td><a href="~/Home/Basket/">Открыть корзину</a></td></tr>
 
 @section Scripts{
 

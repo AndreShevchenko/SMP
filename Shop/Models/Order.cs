@@ -22,6 +22,8 @@ namespace Shop.Models
             return $"{DateTime.Now.ToString("yyyyMMdd-HHmmss")}";
         }
 
+        
+
         //public override string ToString()
         //{
         //    var stringBuilder = new StringBuilder();

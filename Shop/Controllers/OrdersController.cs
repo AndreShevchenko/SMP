@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Controllers
 {
+    [Route("Home/Basket")]
     [Route("orders")]
     public class OrdersController : Controller
     {
@@ -41,6 +42,7 @@ namespace Shop.Controllers
                 });
 
             return View(ordersViewModel);
-        }
+        }       
+
     }
 }
