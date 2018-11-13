@@ -26,7 +26,7 @@ namespace Shop
                                                options.UseSqlServer(Configuration.GetConnectionString("ShopContext")));
 
             //for sqllite
-            //services.AddDbContext<ShopContext>(options => options.UseSqlite("Data Source=shop.db"));
+            //services.AddDbContext<ShopContext>(options => options.UseSqlite("Data Source=App_Data/shop.db"));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -60,7 +60,7 @@ namespace Shop
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Products}/{action=Index}/{id?}");
             });
         }
     }

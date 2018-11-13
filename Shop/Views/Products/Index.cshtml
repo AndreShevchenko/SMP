@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Product>
+
+@{
+    var title = "Продукты";
+    ViewData["Title"] = title;
+}
+
+@section scripts {
+    <script>
+        function productAdd(productId) {
+
+            var xhr = new XMLHttpRequest();
+            
+            xhr.open("GET", 'orders/add' + productId + '/payed', false);
+
+            xhr.send();
+
+            xhr.onload = function () {
+                console.log(xhr.response);
+                if (JSON.parse(xhr.response)) {
+
+                    alert('Успешно добавлено в корзину: ' + productName);
+                }
+            };
+        }
+    </script>
+}
+
+<h2>@title</h2>
+
+<div class="row">
+    <div class="col-md-1">
+        <a href="/products/add" class="btn btn-primary">Добавить продукт</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Название продукта</th>
+            <th>Цена</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>
+                    <a id="button_@(product.Id)" onclick="productAdd(@(product.Id))" class="btn btn-success">Добавить в корзину</a>
+                    <a href="products/edit/@(product.Id)" class="btn btn-info">Редактировать</a>
+                    <a href="products/delete/@(product.Id)" class="btn btn-danger">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

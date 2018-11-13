@@ -9,7 +9,7 @@ namespace Shop.Data.Mappings
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasMany(x => x.Items);
+            builder.HasMany(x => x.Items);            
         }
     }
 }

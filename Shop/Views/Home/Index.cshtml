@@ -1,30 +1,10 @@
-﻿@model IEnumerable<Shop.Models.Product>
-@{
-    ViewData["Title"] = "Каталог товаров";
-}
-<h3>Продукты</h3>
-<table class="table-condensed">
-    <tr>
-        <td>Название</td>
-        <td>Цена</td>
-        <td></td>
-    </tr>
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td>@product.Name</td>
-            <td>@product.Price</td>
-            <td><a asp-action="Basket">Добавить в корзину</a></td>
-        </tr>
-    }
-</table>
-<tr><td><a href="~/Home/Basket/">Открыть корзину</a></td></tr>
-
-@section Scripts{
-
+﻿@{
+    ViewData["Title"] = "Home Page";
 }
 
-<!--
+@section Scripts {
+
+}
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -114,4 +94,4 @@
             <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
-</div> -->
+</div>
