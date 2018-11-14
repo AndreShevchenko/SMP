@@ -10,32 +10,33 @@ using System.Threading.Tasks;
 
 namespace Shop.Controllers
 {
-    [Route("orders")]
-    public class OrdersController : Controller
+    [Route("cart")]
+    public class CartsController : Controller
     {
         public ShopContext _db;
 
-        public OrdersController(ShopContext db)
+        public CartsController(ShopContext db)
         {
             _db = db;
         }
 
-        [Route("")]        
+        [Route("")]
         public async Task<IActionResult> Index()
         {
             var orders = await _db.Orders
+                .Where(x => x.Status == OrderStatus.NotPayed)
                 .Include(x => x.Items)
                 .ThenInclude(x => x.Product)
                 .ToListAsync();
 
-            var ordersViewModel = orders
-                .Select(order => new OrderViewModel
+            var cartsViewModel = orders
+                .Select(order => new CartsViewModel
                 {
                     Id = order.Id,
                     Number = order.Number,
                     Status = order.Status,
                     Items = order.Items
-                        .Select(item => new OrderItemViewModel
+                        .Select(item => new CartItemViewModel
                         {
                             ProductName = item.Product.Name,
                             ProductPrice = item.Product.Price,
@@ -43,11 +44,11 @@ namespace Shop.Controllers
                         }).ToList()
                 });
 
-            return View(ordersViewModel);
+            return View(cartsViewModel);
         }
 
         [HttpGet]
-        [Route("/add{productId:int}/payed")]        
+        [Route("/add{productId:int}/payed")]
         public async Task<ActionResult<bool>> Payed(int orderId)
         {
             var order = await _db.Orders.FirstOrDefaultAsync(x => x.Id == orderId);

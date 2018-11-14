@@ -11,17 +11,16 @@
 
             var xhr = new XMLHttpRequest();
             
-            xhr.open("GET", 'orders/add' + productId + '/payed', false);
+            xhr.open("GET", 'products/' + productId + '/addToCart' );
 
             xhr.send();
 
             xhr.onload = function () {
-                console.log(xhr.response);
-                if (JSON.parse(xhr.response)) {
-
-                    alert('Успешно добавлено в корзину: ' + productName);
-                }
+                
+                prompt("Продукт добавлен в корзину\nПосмотреть корзину: ", "localhost:57879/cart");
+            
             };
+
         }
     </script>
 }
